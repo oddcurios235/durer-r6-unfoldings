@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "Citation information for the accompanying mathematical preprint."
+title: "Two Original-Edge Unfoldings for a Family of Parallelogram-Base Prismatoids at Every Positive Height"
+authors:
+  - family-names: "Miah"
+    given-names: "Y. T."
+preferred-citation:
+  type: article
+  title: "Two Original-Edge Unfoldings for a Family of Parallelogram-Base Prismatoids at Every Positive Height"
+  authors:
+    - family-names: "Miah"
+      given-names: "Y. T."
+  year: 2026

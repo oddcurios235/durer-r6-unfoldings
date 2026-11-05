@@ -1,0 +1,366 @@
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[margin=1.12in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\hypersetup{pdftitle={Two Original-Edge Unfoldings for a Family of Parallelogram-Base Prismatoids at Every Positive Height},pdfauthor={Y. T. Miah},pdfsubject={Convex prismatoid edge unfoldings}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\conv}{\operatorname{conv}}
+\newcommand{\inter}{\operatorname{int}}
+\newcommand{\nn}{n_N}
+\newcommand{\ee}{n_E}
+\title[Two unfoldings of a parallelogram-base prismatoid family]{Two Original-Edge Unfoldings for a Family of Parallelogram-Base Prismatoids at Every Positive Height}
+\author{Y. T. Miah}
+\date{5 November 2026}
+\subjclass[2020]{52B10, 52C99, 51F99}
+\keywords{edge unfolding, prismatoid, convex polyhedron, nonoverlapping net, face development}
+\begin{document}
+\begin{abstract}
+We establish two explicit original-edge spanning cut trees for a restricted family of convex prismatoids at every height \(h>0\): each gives a connected planar development in which the interiors of all complete maximal facets are pairwise disjoint. The lower base is a parallelogram with a distinguished angle in \((0,\pi/2]\) and possibly unequal side lengths. The entire upper polygon is strictly convex, with two anchored sides parallel to the lower edge directions and a corner chain strictly monotone in the corresponding oblique coordinates; its common anchor length is at least both lower side lengths. Both unfoldings preserve the genuine quadrilateral lateral facets without diagonal cuts. Pinciu's face-neighbourhood theorem controls the upper face and its direct edge-neighbours; height-dependent separator inequalities, a whole-bottom support-line argument, and a complete face-pair analysis handle the remaining triangles and lower base. An explicit rational family has arbitrarily many vertices and strictly disjoint horizontal projections of the bases.
+\end{abstract}
+\maketitle
+
+\section{Introduction}
+An \emph{edge unfolding} cuts a convex polyhedron along a spanning tree of its genuine edges and develops the remaining connected surface isometrically into the plane. A net is \emph{nonoverlapping} when the interiors of the developed maximal faces are pairwise disjoint; their boundaries may meet. The existence of such a net for every convex polyhedron remains a central open question; see \cite{demaine_orourke_book}.
+
+For prismatoids, the convex hulls of two polygons in parallel planes, the relationship between a nonoverlapping lateral band and a net containing both bases is particularly subtle. Aloupis and collaborators developed band-unfolding methods \cite{aloupis2008}, and O'Rourke exhibited an obstruction to a natural band-with-caps strategy \cite{orourke2007band}. Positive full-polyhedron results include the nested-prismatoid theorem of Radons \cite{radons2024} and tall and certain rectangular-base prismatoids studied by Bian, Demaine and Madhukara \cite{bian2021}. Earlier convex-patch methods include Pinciu's theorem for the edge-neighbourhood of a single face \cite[Theorem~1]{pinciu2007}, and O'Rourke's work on face-neighbourhoods \cite{orourke2013}. Other methods include the empty-sector truncations of Benton and O'Rourke \cite{benton2007}, skeletal cut-locus realisations \cite{orourke_vilcu2025}, and affine-unfolding constructions \cite{ghomi2014}; these address different sets of geometric hypotheses or metrics.
+
+The family considered here has a particularly transparent supporting-face structure: a top polygon with two rectilinear anchored sides and an arbitrary convex corner chain; a lower parallelogram; two genuine quadrilateral side faces; and a fan of triangles at one lower vertex. The assertion is simultaneous for two \emph{specified} original-edge trees, not merely existence of one unspecified tree. Pinciu's theorem applies to the upper face and its direct edge-neighbours; the two remaining side triangles and the lower base require the arguments below. Explicit inequalities permit the latter three faces to be attached without interference, even when the bases have disjoint projections and the height approaches zero through positive values.
+
+\section{Geometry and the two cut trees}
+All planar coordinates below are \emph{physical Euclidean horizontal coordinates}, identified with \(\R^2\). We use \((z_1,z_2)\) for the horizontal part of a point in \(\R^3\). Let
+\begin{equation}\label{eq:parameters}
+ c^2+s^2=1,\quad 0<s\le c,\quad b,\ell>0,\quad
+ t\ge\max\{b,\ell\},\quad h>0,\qquad
+ p=(c,-s),\quad q=(c,s).
+\end{equation}
+Define the lower face at height \(0\) by the cyclic vertices
+\begin{equation}\label{eq:lower}
+ B=(O,X,Y,Z),\qquad O=0,\quad X=bp,\quad Y=bp+\ell q,\quad Z=\ell q.
+\end{equation}
+At height \(h\) let the upper face be the \emph{strictly convex} polygon
+\begin{equation}\label{eq:upper}
+ A=(A_0,A_1,\ldots,A_k,W),\quad k\ge1,\quad
+ A_0=U=tq,\quad A_k=V=tp,\quad W=t(p+q),
+\end{equation}
+where, in the oblique coordinate labels \(A_i=x_i p+y_i q\),
+\begin{equation}\label{eq:chain}
+ (x_0,y_0)=(0,t),\quad (x_k,y_k)=(t,0),\qquad
+ x_{i+1}>x_i,\quad y_{i+1}<y_i\quad(0\le i<k).
+\end{equation}
+Strict convexity of the \emph{whole} upper polygon is an additional assumption; it is not inferred from \eqref{eq:chain}. The oblique labels specify the given Euclidean solid, not a sheared planar development.
+
+Write \(P=\conv(B\cup A)\), with the bases placed at their stipulated heights. For convenience we use the same symbols for the horizontal projections of vertices and, when unambiguous, for the three-dimensional vertices or their developed images.
+
+\begin{theorem}\label{thm:main}
+For every choice of \eqref{eq:parameters}--\eqref{eq:chain} with the entire upper polygon strictly convex, \(P\) has the following maximal facets:
+\begin{equation}\label{eq:faces}
+ B,\ A,\quad R=OZU,\quad S=OXV,\quad
+ N=YZUW,\quad E=XYWV,\quad
+ F_i=OA_iA_{i+1}\ (0\le i<k).
+\end{equation}
+Both edge sets
+\begin{align}
+ T_N^*&=\{OX,OZ,XY,YW\}\cup\{OA_i:0\le i\le k\},\label{eq:treeN}\\
+ T_E^*&=\{OX,OZ,YZ,YW\}\cup\{OA_i:0\le i\le k\}\label{eq:treeE}
+\end{align}
+are genuine-edge spanning cut trees that yield connected planar developments in which the interiors of all distinct developed maximal facets are disjoint. The quadrilateral facets \(N,E\) remain intact, with no cut along their diagonals. The conclusion holds for both named trees \emph{for each} admissible \(P\).
+\end{theorem}
+
+\begin{lemma}[Maximal facets and topology]\label{lem:faces}
+The complete list \eqref{eq:faces} is the supporting-facet list. There are
+\[
+ f_0=k+6,\qquad f_2=k+6,\qquad f_1=2k+10
+\]
+vertices, maximal facets and edges, respectively. Each of \eqref{eq:treeN}, \eqref{eq:treeE} contains \(k+5=f_0-1\) distinct genuine edges and is a spanning tree. Its complementary uncut face-adjacency graph is a tree.
+\end{lemma}
+\begin{proof}
+Consider a supporting plane with nonvertical normal \((v,\gamma)\). Its maximum on the two base planes is obtained from their horizontal support functions, with the upper one shifted by \(\gamma h\). As the horizontal normal \(v\) runs around the common refinement of the two polygonal normal fans, the mixed side faces are produced by a supported edge on one base and a supported vertex or parallel edge on the other.
+
+For each strictly southeast edge \(A_iA_{i+1}\), the outward normal \(n_i\) satisfies \(n_i\cdot p<0\) and \(n_i\cdot q<0\); the unique lower supporting vertex is \(O\), producing \(F_i\). The two upper edges \(UW\parallel p\) and \(VW\parallel q\) have the corresponding lower support edges \(ZY\parallel p\) and \(XY\parallel q\); their mixed faces are the complete planar quadrilaterals \(N,E\). The remaining two lower sides \(OZ\) and \(OX\) pair with the upper vertices \(U,V\), producing \(R,S\). Strict convexity and the strict chain inequalities prevent any further shared normal interval or coplanar merger. The horizontal supporting faces are \(A,B\). Because \(h>0\), none of these faces degenerates at \(t=b\), \(t=\ell\) or \(s=c\).
+
+There are \(4+(k+2)=k+6\) vertices and \(2+4+k=k+6\) maximal faces; Euler's formula then gives \(2k+10\) edges. The first cut tree is the star with edges from \(O\) to \(X,Z,A_0,\ldots,A_k\), extended by \(X-Y-W\); the second replaces that branch with \(Z-Y-W\). In each case the edges are present in \eqref{eq:faces}, span all vertices, and contain no cycle.
+
+For the first tree the complementary uncut dual has root \(A\), with neighbours \(N,E,F_0,\ldots,F_{k-1}\). The remaining faces attach as \(R\) to \(N\) along \(UZ\), \(S\) to \(E\) along \(VX\), and \(B\) to \(N\) along \(YZ\). For the second tree only the attachment of \(B\) changes, to \(E\) along \(XY\). Both uncut duals are connected trees, so either resulting developed surface is a single disk.
+\end{proof}
+
+\section{The upper-rooted Euclidean development}
+We root both developments at the upper face \(A\), retaining its original horizontal metric and position. The quadrilaterals \(N,E\) and fan triangles \(F_i\) are unfolded outwards along their respective upper edges; \(R\) attaches to \(N\) across \(UZ\), and \(S\) attaches to \(E\) across \(VX\). The two trees differ only in the final attachment of \(B\).
+
+\begin{lemma}[Upper edge-neighbourhood]\label{lem:pinciu}
+The interiors of the developed faces
+\[
+ A,\quad N,\quad E,\quad F_0,\ldots,F_{k-1}
+\]
+are pairwise disjoint.
+\end{lemma}
+\begin{proof}
+These are exactly the upper face and all faces sharing an upper edge with it. The chosen development is the volcano (petal) development of that direct edge-neighbourhood, to which Pinciu's theorem \cite[Theorem~1]{pinciu2007} applies. Neither remote side triangle nor the lower base is included in this application.
+\end{proof}
+
+Set
+\begin{equation}\label{eq:kappad}
+ \kappa=2cs>0,\qquad d=c^2-s^2\ge0,\qquad \kappa^2+d^2=1,
+ \qquad n_N=(s,c),\quad n_E=(s,-c).
+\end{equation}
+Notice that \(n_N\cdot p=0\), \(n_N\cdot q=\kappa\), and \(n_E\cdot q=0\), \(n_E\cdot p=\kappa\). Let \(J(x,y)=(-y,x)\), so \(Jp=n_N\) and \(Jq=(-s,c)\).
+
+\begin{lemma}[Developed side faces]\label{lem:development}
+Write \(a=t-\ell\ge0\) and
+\begin{equation}\label{eq:Q}
+ Q=\sqrt{\kappa^2a^2+h^2}+\kappa a.
+\end{equation}
+The unfolded north quadrilateral has lower vertices
+\begin{equation}\label{eq:north}
+ Z_N=\ell q+Qn_N,\qquad Y_N=bp+\ell q+Qn_N.
+\end{equation}
+Similarly, setting \(a_E=t-b\ge0\) and \(Q_E=\sqrt{\kappa^2a_E^2+h^2}+\kappa a_E\), the unfolded east quadrilateral has lower vertices
+\begin{equation}\label{eq:east}
+ X_E=bp+Q_E n_E,\qquad Y_E=bp+\ell q+Q_E n_E.
+\end{equation}
+In particular,
+\begin{equation}\label{eq:Qident}
+ Q\ge h,\qquad Q>2\kappa a,\qquad Q^2-2\kappa aQ=h^2,
+\end{equation}
+and the analogous statements hold for \(Q_E\).
+
+For an upper-chain edge put \(\eta_i=n_i\cdot A_i\), where \(n_i\) is its outward unit normal. Its associated triangle \(F_i\) has developed lower apex
+\begin{equation}\label{eq:fanapex}
+ z_i=\rho_i n_i,\qquad
+ \rho_i=\sqrt{\eta_i^2+h^2}+\eta_i,
+ \qquad \eta_i<0,\quad 0<\rho_i<h.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The unfolded hinge \(UW\) has direction \(p\). The tangential displacement from \(U=tq\) to \(Z=\ell q\) is preserved; in the exterior normal direction the original perpendicular offset is \(-\kappa a\), and the true slant distance is \(\sqrt{\kappa^2a^2+h^2}\). Their combination yields \eqref{eq:Q}--\eqref{eq:north}. It preserves the Euclidean lengths along \(UW\), perpendicular to the hinge, and hence all distances in the intact quadrilateral. The same orthogonal-hinge calculation along \(VW\) gives \eqref{eq:east}. Rationalisation of \eqref{eq:Q} gives \eqref{eq:Qident}; equality in \(Q\ge h\) occurs precisely at \(a=0\).
+
+The foot of the lower origin on the upper-chain supporting line is \(\eta_i n_i\). After unfolding the triangle exterior to \(A\), the signed normal position of its lower apex is \(\eta_i+\sqrt{\eta_i^2+h^2}\), proving \eqref{eq:fanapex}. The strict southwest normal inequalities give \(\eta_i<0\), and hence \(0<\rho_i<h\).
+\end{proof}
+
+Because the upper polygon is convex and its \(U\)-to-\(V\) chain lies across \(UV\) from \(W\), each chain vertex lies in the triangle \(OUV\). In labels,
+\begin{equation}\label{eq:triOUV}
+ x_i\ge0,\qquad y_i\ge0,\qquad x_i+y_i\le t.
+\end{equation}
+We will use whole-face convexity repeatedly: an entire convex polygon lies in a closed half-plane containing all its vertices.
+
+\section{A height-dependent separator for remote triangles}
+Define the vector and half-plane
+\begin{equation}\label{eq:gU}
+ g_U=hq+tJq=(hc-ts,\ hs+tc),
+ \qquad H_U=\{z:g_U\cdot z\le ht\}.
+\end{equation}
+\begin{lemma}[All fan faces lie below one line]\label{lem:fansep}
+The developed copy of every \(F_i\) lies in \(H_U\), and its lower apex satisfies \(g_U\cdot z_i<ht\).
+\end{lemma}
+\begin{proof}
+At \(O,U,V\) the linear functional \(g_U\cdot z\) takes values
+\[
+ 0,\qquad ht,\qquad t(hd-t\kappa)<ht,
+\]
+respectively. By \eqref{eq:triOUV}, all upper-chain vertices are in \(H_U\). For \(n_i\) from \eqref{eq:fanapex},
+\[
+ g_U\cdot n_i=h(q\cdot n_i)+t(Jq\cdot n_i)<t,
+\]
+since \(q\cdot n_i<0\) and \(Jq\) has unit length. If this dot product is nonpositive, \(g_U\cdot z_i\le0<ht\); if positive, multiplication by \(0<\rho_i<h\) yields \(g_U\cdot z_i<ht\). All three vertices of each \(F_i\) thus belong to \(H_U\); convexity proves the asserted \emph{whole-triangle} containment.
+\end{proof}
+
+\begin{lemma}[The remote north triangle]\label{lem:remotenorth}
+The developed face \(R\) lies in \(\{z:g_U\cdot z\ge ht\}\), with every point of its interior in the strict half-plane. Consequently \(\inter R\cap\inter F_i=\varnothing\) for all \(i\).
+\end{lemma}
+\begin{proof}
+Let \(e=U-Z_N\) and use \(J\) as above. Formula \eqref{eq:Qident} gives \(|e|^2=a^2+h^2\). Unfolding \(R\) exterior to \(N\) along the uncut edge \(UZ\) places its remaining vertex \(O\) at
+\begin{equation}\label{eq:On}
+ O_N=Z_N-\ell\frac{ae+hJe}{a^2+h^2}.
+\end{equation}
+Indeed \(|O_N-Z_N|=\ell\), \(|O_N-U|^2=t^2+h^2\), and \(\det(e,O_N-Z_N)=-\ell h<0\) gives the side opposite \(N\). Thus \eqref{eq:On} is the genuine rigid development, including when \(a=0\).
+
+The following identities follow by substituting \eqref{eq:north} and \eqref{eq:On}, using \(\kappa^2+d^2=1\) and \eqref{eq:Qident}:
+\begin{align}
+ g_U\cdot Z_N-ht&=Q(\kappa h+dt)-ha,\label{eq:marginZ}\\
+ (a^2+h^2)(g_U\cdot O_N-ht)
+ &=(h^2+t^2)\bigl[Q(\kappa h+da)-ha\bigr].\label{eq:marginO}
+\end{align}
+We prove that the common bracket
+\begin{equation}\label{eq:L}
+ L=Q(\kappa h+da)-ha>0
+\end{equation}
+without imposing a height bound. If \(a=0\), then \(Q=h\) and \(L=\kappa h^2>0\). If \(a>0\), put \(x=h/a>0\); \eqref{eq:L} is equivalent to
+\begin{equation}\label{eq:sqrtineq}
+ (\sqrt{\kappa^2+x^2}+\kappa)(\kappa x+d)>x.
+\end{equation}
+Multiplying by the positive conjugate \(\sqrt{\kappa^2+x^2}-\kappa\), and cancelling \(x>0\), converts \eqref{eq:sqrtineq} to
+\[
+ \kappa(x^2+1)+dx>\sqrt{\kappa^2+x^2}.
+\]
+Both sides are nonnegative, and the difference of their squares is
+\begin{equation}\label{eq:positivity}
+ [\kappa(x^2+1)+dx]^2-(\kappa^2+x^2)
+ =\kappa x(x^2+1)(\kappa x+2d)>0.
+\end{equation}
+This proves \eqref{eq:L}. Since
+\[
+ Q(\kappa h+dt)-ha=L+Qd(t-a)=L+Qd\ell>0,
+\]
+both \eqref{eq:marginZ} and \eqref{eq:marginO} are strictly positive. The third vertex \(U\) has \(g_U\cdot U=ht\). Every interior point of the whole convex triangle \(R=O_NZ_NU\) therefore lies in \(g_U\cdot z>ht\), whereas every \(F_i\) lies in \(H_U\) by Lemma~\ref{lem:fansep}.
+\end{proof}
+
+Reflection in the horizontal axis is the Euclidean isometry
+\[
+ \sigma(z_1,z_2)=(z_1,-z_2).
+\]
+It interchanges \(p,q\), the roles of \(b,\ell\), the upper endpoints \(U,V\), and the north/east attachments, while reversing the chain order. In particular, Lemmas~\ref{lem:fansep}--\ref{lem:remotenorth}, applied to the reflected instance, show that the \emph{entire} developed remote triangle \(S\) has interior disjoint from every \(F_i\). The reflected chain is still strictly convex and strictly monotone.
+
+\section{Separation of the complete lower base}
+\begin{lemma}[A whole-bottom support line]\label{lem:bottom}
+In the development associated with \(T_N^*\), the entire lower parallelogram \(B\) is disjoint from \(A\) and every \(F_i\). In the development associated with \(T_E^*\), the same assertion holds by Euclidean reflection.
+\end{lemma}
+\begin{proof}
+Since \(n_N\cdot p=0\), \(n_N\cdot q=\kappa\), and \(0\le y_i\le t\), every vertex of \(A\) satisfies \(n_N\cdot z\le\kappa t\). The apices of the developed fan triangles satisfy \(n_N\cdot z_i<h\) by \eqref{eq:fanapex}. It follows, for the entire upper face and fan, that
+\begin{equation}\label{eq:fanbound}
+ A\cup\bigcup_{i=0}^{k-1} F_i
+ \subseteq\{z:n_N\cdot z\le M\},\qquad M=\max\{\kappa t,h\}.
+\end{equation}
+The uncut bottom hinge \(Z_NY_N\) lies on
+\begin{equation}\label{eq:bottomline}
+ n_N\cdot z=\kappa\ell+Q
+ =\kappa t+\sqrt{\kappa^2(t-\ell)^2+h^2}>M.
+\end{equation}
+The inequality relative to \(\kappa t\) is immediate, and relative to \(h\) follows from \(Q\ge h\), \(\kappa\ell>0\).
+
+The developed lower parallelogram is on the side exterior to \(N\). Its two remaining vertices are
+\begin{equation}\label{eq:bottompoints}
+ O_B=Z_N+\ell r,\quad X_B=Y_N+\ell r,\qquad
+ r=q-2dp=(-\cos3\theta,\sin3\theta),\quad
+ c=\cos\theta,\ s=\sin\theta.
+\end{equation}
+Here \(|r|=1\) and \(n_N\cdot r=\kappa>0\), so all of \(B\) is on or strictly beyond the line in \eqref{eq:bottomline}. The half-planes \eqref{eq:fanbound} and \eqref{eq:bottomline} are disjoint. In the second tree the base attaches to \(E\) along \(XY\); applying \(\sigma\) and swapping \(b,\ell\) gives exactly the corresponding full-face support line.
+\end{proof}
+
+\section{The remaining face pairs}
+The preceding lemmas handle the direct upper neighbours, all fan--remote-triangle pairs, and the complete base against \(A,F_i\). The remaining face pairs are handled by half-plane bounds and a vertex-cone argument. We state both at the scale of \emph{complete} facets.
+
+\begin{lemma}[North--south half-planes]\label{lem:halfplanes}
+In either upper-rooted development,
+\[
+ N\subseteq\{z_2\ge0\},\quad R\subseteq\{z_2>0\},\qquad
+ E\subseteq\{z_2\le0\},\quad S\subseteq\{z_2<0\}.
+\]
+For \(T_N^*\), the entire lower base lies in \(\{z_2>0\}\); for \(T_E^*\), it lies in \(\{z_2<0\}\).
+\end{lemma}
+\begin{proof}
+The top vertices of \(N\) have second coordinates \(ts>0\) and \(0\). Its other vertices satisfy
+\[
+ (Z_N)_2=\ell s+Qc>0,\qquad
+ (Y_N)_2=s(\ell-b)+Qc.
+\]
+The last number is positive if \(\ell\ge b\). If \(b>\ell\), use \(t\ge b\) and \(Q>2\kappa(t-\ell)=4cs(t-\ell)\) to obtain
+\[
+ (Y_N)_2>s(b-\ell)(4c^2-1)>0,
+\]
+where \(c^2\ge1/2\). Thus the whole quadrilateral \(N\) lies in the stated half-plane.
+
+For \(R\), the two developed vertices \(U,Z_N\) have positive second coordinate, while substitution in \eqref{eq:On} yields
+\begin{equation}\label{eq:Oy}
+ (a^2+h^2)(O_N)_2
+ =\ell s h^2+Qc(a^2+h^2)+\ell ca(Q-h)+\ell hQs>0.
+\end{equation}
+Every summand is nonnegative and the first is strictly positive. Reflection gives the assertions for \(E,S\). For the \(N\)-attached bottom, \eqref{eq:bottompoints} adds a positive second-coordinate increment \(\ell\sin3\theta\), where \(0<\theta\le\pi/4\) implies \(\sin3\theta>0\). Its hinge endpoints are already positive. This proves the complete-base assertion; reflection covers the \(E\)-attached bottom.
+\end{proof}
+
+\begin{lemma}[Consecutive complete face cones]\label{lem:cones}
+Let \(v\) be a vertex of a convex three-polytope. Suppose some incident facets are developed consecutively about their uncut hinges at \(v\), preserving their cyclic order. Their entire developed convex facets have disjoint interiors whenever their angular intervals at \(v\) are distinct and lie in the unwrapped sum of incident face angles. In particular the conclusion holds for any consecutive chain of incident facets of a convex three-polytope.
+\end{lemma}
+\begin{proof}
+A complete convex planar facet with vertex \(v\) lies inside the cone bounded by its two incident rays from \(v\). Its own face angle has width \emph{strictly less than} \(\pi\), so this is a genuine convex cone containing the \emph{whole facet}, not just a neighbourhood of \(v\). The complete cyclic sum of face angles around a convex polyhedral vertex is strictly less than \(2\pi\). Unfolding a consecutive chain of incident facets into the plane preserves their individual face angles and puts their successive angular intervals next to one another without wrapping around the full circle. The angular intervals have disjoint interiors. Therefore so do the complete facets contained in their respective cones. We do not assume that a union of successive sectors of width greater than \(\pi\) is convex; only the \emph{individual} facet cones are used.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Lemma~\ref{lem:faces} establishes the actual cuts and the connected development. All face pairs in the central collection
+\[
+ \mathcal C=\{A,N,E,F_0,\ldots,F_{k-1}\}
+\]
+are nonoverlapping by Lemma~\ref{lem:pinciu}. Lemmas~\ref{lem:fansep}--\ref{lem:remotenorth} and reflection give the pairs \((R,F_i)\), \((S,F_i)\); Lemma~\ref{lem:bottom} gives \((B,A)\) and \((B,F_i)\) for either attachment.
+
+It remains to list the pairs that involve \(R,S,B\), or pair those faces with \(N,E\). In the \(N\)-attached tree, the consecutive developed face chains \(B,N,R\) at \(Z\), \(R,N,A,F_0\) at \(U\), and \(S,E,A,F_{k-1}\) at \(V\) satisfy Lemma~\ref{lem:cones}. Consequently
+\begin{equation}\label{eq:coneclasses}
+ (B,N),(B,R),(N,R),(R,A),(S,E),(S,A)
+\end{equation}
+all have disjoint interiors. The opposite-half-plane lemma also gives
+\begin{equation}\label{eq:halfclasses}
+ (N,S),(E,R),(R,S),(B,E),(B,S).
+\end{equation}
+Together with the central, fan-separator and support-line classes already considered, \eqref{eq:coneclasses}--\eqref{eq:halfclasses} exhaust all unordered pairs of distinct faces: among the three remote faces \(R,S,B\) all three pairs are covered; each remote face has been compared with every member of \(\mathcal C\).
+
+For clarity, in the \(E\)-attached tree the positions of \(A,N,E,F_i,R,S\) are \emph{unchanged}; thus every pair not involving \(B\) is covered by exactly the same argument. The six changed classes are
+\[
+ \begin{array}{c|c}
+ \text{pair}&\text{reason}\\ \hline
+ (B,A),(B,F_i)&\text{reflected support line}\\
+ (B,E),(B,S)&\text{consecutive whole-face cones at }X\\
+ (B,N),(B,R)&\text{opposite horizontal half-planes}.
+ \end{array}
+\]
+This list is exhaustive for \(B\). In either tree the full face set has \(k+6\) members, with \(\binom{k+3}{2}\) central pairs, \(3(k+3)\) central--remote pairs, and three remote--remote pairs; every class has appeared above. Both developments are therefore nonoverlapping connected nets, with boundary contact permitted. This proves the theorem.
+\end{proof}
+
+\section{An unbounded, nonnested rational family}
+\begin{proposition}\label{prop:witness}
+For every integer \(k\ge1\), set
+\begin{equation}\label{eq:witness}
+ c=\frac{99}{101},\quad s=\frac{20}{101},\quad b=1,\quad
+ \ell=2,\quad t=5,\quad h=10^{-4},\qquad \tau_j=\frac{j}{k},
+\end{equation}
+\[
+ x_j=5\tau_j,\qquad y_j=5(1-\tau_j)-\tau_j(1-\tau_j)
+ \quad(0\le j\le k).
+\]
+Together with \(W=5(p+q)\), these data define admissible polyhedra with \(k+6\) vertices and strictly disjoint horizontal projections of the two bases. Both trees \eqref{eq:treeN}--\eqref{eq:treeE} unfold each one. The same assertions hold with any \(h>0\) in place of \(10^{-4}\).
+\end{proposition}
+\begin{proof}
+The formula gives \(x_j\) strictly increasing and \(y_j\) strictly decreasing; the chain is sampled from the strictly convex graph \(y=5-\frac65 x+\frac1{25}x^2\), which lies beneath the segment \(UV\). Along with the other two upper sides, it makes a strictly convex polygon (for \(k=1\), this is the triangle \(UVW\)). Also \(99^2+20^2=101^2\), and \(0<s<c\).
+
+In oblique labels, \(x+y\le3\) throughout the lower parallelogram. Throughout the upper polygon, every vertex satisfies \(x+y\ge5-\frac14=\frac{19}{4}\); convexity extends the inequality to the entire upper face. But the true first Cartesian horizontal coordinate is \(c(x+y)\). Thus the projected bases are separated by a gap at least
+\[
+ c\left(\frac{19}{4}-3\right)=\frac{7c}{4}>0.
+\]
+Theorem~\ref{thm:main} applies for every positive height. In particular the lower parallelogram is not rectangular (its \(p,q\) angle has cosine \(c^2-s^2=9401/10201\)), and for \(k=20\) the solid has 26 vertices and 20 fan triangles. Varying \(k\) shows that the chain length is unbounded.
+\end{proof}
+
+\section{Reproducible exact checks}
+The analytic proof establishes the universal assertion. For separate finite corroboration, the accompanying standard-library programs \texttt{r6\_main\_checks.py} and \texttt{r6\_additional\_checks.py} regenerate rational input data and compare every recomputed result against packaged JSON certificates. The former checks \(676\) complete developments and \(31{,}780\) face pairs; the latter checks \(748\) developments and \(37{,}396\) pairs, including the alternative tree for each original input and both trees on additional asymmetric chains. Combined, these cover \(1{,}424\) developments from \(712\) rational inputs and \(69{,}176\) face pairs, with at most 26 vertices. The underlying hull and planar-intersection verifier uses exact rational predicates and outward rational interval bounds; inconclusive signs do not count as certificates of disjointness.
+
+The supplementary programs \texttt{algebra\_checks.py} and \texttt{structural\_checks.py} test polynomial identities, exact rational placements and the structural witness. The bundled geometric checker \texttt{code/prismatoid\_checker.py} implements the rational hull, cut-tree and planar-separation tests. The accompanying README gives the commands.
+
+\section*{Use of AI}
+OpenAI's GPT-6 Pro contributed substantively to the mathematical investigation, development of proofs, computational verification, literature review, and drafting of this manuscript. The author is responsible for its mathematical claims and final presentation.
+
+\begin{thebibliography}{99}
+\bibitem{aloupis2008} G. Aloupis, E. D. Demaine, S. Langerman, P. Morin, J. O'Rourke, I. Streinu, and G. Toussaint,
+\emph{Edge-unfolding nested polyhedral bands}, Comput. Geom. \textbf{39} (2008), 30--42. \href{https://doi.org/10.1016/j.comgeo.2007.05.009}{doi:10.1016/j.comgeo.2007.05.009}.
+\bibitem{benton2007} A. Benton and J. O'Rourke,
+\href{https://cccg.ca/proceedings/2007/03b4full.pdf}{\emph{Unfolding polyhedra via cut-tree truncation}}, Proc. 19th Canadian Conf. Comput. Geom. (2007), 77--80.
+\bibitem{bian2021} V. Bian, E. D. Demaine, and R. Madhukara,
+\href{https://erikdemaine.org/papers/Prismatoids_CCCG2021/paper.pdf}{\emph{Edge-unfolding prismatoids: tall or rectangular base}}, Proc. 33rd Canadian Conf. Comput. Geom. (2021), 343--347.
+\bibitem{demaine_orourke_book} E. D. Demaine and J. O'Rourke,
+\emph{Geometric Folding Algorithms: Linkages, Origami, Polyhedra}, Cambridge Univ. Press, 2007. \href{https://doi.org/10.1017/CBO9780511735172}{doi:10.1017/CBO9780511735172}.
+\bibitem{ghomi2014} M. Ghomi,
+\emph{Affine unfoldings of convex polyhedra}, Geom. Topol. \textbf{18} (2014), 3055--3090. \href{https://doi.org/10.2140/gt.2014.18.3055}{doi:10.2140/\allowbreak gt.2014.18.3055}.
+\bibitem{orourke2007band} J. O'Rourke,
+\emph{Band unfoldings and prismatoids: a counterexample}, \href{https://arxiv.org/abs/0710.0811v2}{arXiv:0710.0811v2} (2007).
+\bibitem{orourke2013} J. O'Rourke,
+\href{https://cccg.ca/proceedings/2013/papers/paper_22.pdf}{\emph{Unfolding face-neighborhood convex patches: counterexamples and positive results}}, Proc. 25th Canadian Conf. Comput. Geom. (2013), 79--84.
+\bibitem{orourke_vilcu2025} J. O'Rourke and C. V\^{\i}lcu,
+\emph{Skeletal cut loci on convex polyhedra}, \href{https://arxiv.org/abs/2312.01534v3}{arXiv:2312.01534v3} (2025).
+\bibitem{pinciu2007} V. Pinciu,
+\href{https://cccg.ca/proceedings/2007/01a4.pdf}{\emph{On the fewest nets problem for convex polyhedra}}, Proc. 19th Canadian Conf. Comput. Geom. (2007), 21--24.
+\bibitem{radons2024} M. Radons,
+\emph{Edge-unfolding nested prismatoids}, Comput. Geom. \textbf{116} (2024), 102033. \href{https://doi.org/10.1016/j.comgeo.2023.102033}{doi:10.1016/\allowbreak j.comgeo.2023.102033}.
+\end{thebibliography}
+\end{document}
