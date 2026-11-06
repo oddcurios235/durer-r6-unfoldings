@@ -52,6 +52,8 @@ The bibliography is contained in `main.tex`; BibTeX is not needed. The supplied 
 
 Y. T. Miah, *Two Original-Edge Unfoldings for a Family of Parallelogram-Base Prismatoids at Every Positive Height* (manuscript dated 5 November 2026). Machine-readable citation metadata is provided in [`CITATION.cff`](CITATION.cff).
 
+Zenodo preprint: [10.5281/zenodo.23993991](https://doi.org/10.5281/zenodo.23993991).
+
 ## Licences
 
 The original manuscript, repository documentation and four JSON certificates are available under **CC BY 4.0**; the six Python files in `code/` are available under **BSD 3-Clause**. The file-by-file scope and terms are in [`LICENSE.md`](LICENSE.md).
